@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>iBackup — dein Backup zum Anfassen</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="iBackup Startseite"
+        ><span class="brand-mark">i</span>iBackup<span class="brand-caption"
+          >MEMORIES, REVISITED.</span
+        ></a
+      >
+      <span class="local-badge"><span></span> Lokal auf deinem Mac</span>
+    </header>
+    <main class="workspace">
+      <aside class="sidebar">
+        <p class="eyebrow">DEINE DIGITALE ZEITKAPSEL</p>
+        <h1>Ein Backup. <br />Viele Erinnerungen.</h1>
+        <p class="intro">
+          Fotos, Gespräche und kleine Notizen. <br />Noch einmal ganz nah.
+        </p>
+        <section class="backup-card" aria-label="Backup auswählen">
+          <div class="card-heading">
+            <span class="tiny-device" aria-hidden="true"></span
+            ><span>Dein Gerät</span><span class="pill">NUR LESEN</span>
+          </div>
+          <label class="sr-only" for="backup-select">Lokales Backup</label>
+          <select id="backup-select">
+            <option>Backups werden gesucht …</option>
+          </select>
+          <div id="backup-meta" class="backup-meta"></div>
+          <p id="backup-warning" class="content-notice" role="status" hidden></p>
+          <button id="refresh-backups" class="text-button" type="button">
+            Backups erneut suchen ↻
+          </button>
+          <button id="choose-path" class="text-button" type="button">
+            Backup-Stand hinzufügen <span>↗</span>
+          </button>
+          <form id="path-form" hidden>
+            <label for="backup-path">Pfad zum Backupordner</label>
+            <p class="timeline-help">Jeden Stand in einem eigenen Ordner behalten, mit eigener Info.plist und Manifest-Datei. Ordner nicht zusammenführen.</p>
+            <input
+              id="backup-path"
+              placeholder="/Users/…/MobileSync/Backup/…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button class="small-button" type="submit">Ordner lesen</button>
+          </form>
+          <p id="sidebar-error" class="inline-error" role="alert" hidden></p>
+        </section>
+        <section class="time-card" aria-label="Zeitmaschine">
+          <details id="time-details">
+            <summary>
+              Zeitmaschine <span id="snapshot-count">1 Stand</span>
+            </summary>
+            <div id="timeline"></div>
+          </details>
+          <label class="history-toggle"
+            ><input id="show-history" type="checkbox" /><span
+              >Vergangene &amp; gelöschte Inhalte<span class="toggle-hint"
+                >Erhaltene Inhalte gemeinsam anzeigen</span
+              ></span
+            ></label
+          >
+        </section>
+        <div class="privacy-note">
+          <span class="shield" aria-hidden="true">✓</span>
+          <p>
+            <strong>Deine Erinnerungen bleiben privat.</strong><br />Nur auf
+            diesem Mac. Das Originalbackup bleibt unverändert.
+          </p>
+        </div>
+        <button id="lock-button" class="lock-button" type="button" disabled>
+          Backup sperren
+        </button>
+      </aside>
+      <section class="device-stage" aria-label="Virtueller iPod">
+        <div class="device">
+          <span class="camera" aria-hidden="true"></span>
+          <div id="screen" class="screen">
+            <div id="statusbar" class="statusbar">
+              <span>iPod <span class="wifi" aria-hidden="true">◔</span></span
+              ><span id="clock">9:41</span
+              ><span
+                >100 % <span class="battery" aria-hidden="true"></span
+              ></span>
+            </div>
+            <div id="display" class="display" aria-live="polite"></div>
+          </div>
+          <button
+            id="home-button"
+            class="home-button"
+            type="button"
+            aria-label="Home — zum Startbildschirm"
+          >
+            <span></span>
+          </button>
+        </div>
+        <div class="device-caption">
+          <span class="caption-line"></span
+          ><span id="device-caption">Ein kleiner Blick zurück.</span
+          ><span class="caption-line"></span>
+        </div>
+        <p class="home-hint">Home-Taste drücken, um zurückzukehren.</p>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <span>Vergangenes entdecken. Originale bewahren.</span
+      ><span>iBackup <span class="footer-dot">·</span> Version 0.2</span>
+    </footer>
+  </body>
+</html>
